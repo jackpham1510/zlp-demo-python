@@ -35,7 +35,13 @@ source env/bin/activate
 sudo apt-get install python3-venv # ubuntu
 ```
 
-8. Tạo một database mới (`utf8_unicode_ci`) trong mysql và thay đổi cấu hình trong `config.json`
+8. Cài đặt các dependencies
+
+```bash
+pip3 install -r requirements.txt
+```
+
+9. Tạo một database mới (`utf8_unicode_ci`) trong mysql và thay đổi cấu hình trong `config.json`
 
 ```json
 {
