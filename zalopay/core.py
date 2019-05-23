@@ -2,11 +2,12 @@ from utils.ngrok import public_url
 from utils import GetTimestamp
 from config import config
 from datetime import datetime
-from uuid import uuid4
 from utils import http
 from zalopay import mac, rsa
 
 import json, base64, urllib.parse
+
+uid = GetTimestamp()
 
 def VerifyCallback(data, requestMac):
   result = {}
@@ -22,7 +23,9 @@ def VerifyCallback(data, requestMac):
   return result
 
 def GenTransID():
-  return '{:%y%m%d}_{}_{}'.format(datetime.today(), config['appid'], uuid4())
+  global uid
+  uid = uid + 1
+  return '{:%y%m%d}_{}_{}'.format(datetime.today(), config['appid'], uid)
 
 def NewOrder(params):
   return {
