@@ -1,4 +1,4 @@
-from peewee import Model, MySQLDatabase, CharField, IntegerField
+from peewee import Model, MySQLDatabase, CharField, BigIntegerField, IntegerField
 from config import config
 
 cfg = config['db']
@@ -12,8 +12,8 @@ class Order(Model):
   apptransid = CharField(primary_key=True)
   zptransid = CharField()
   description = CharField()
-  amount = IntegerField()
-  timestamp = IntegerField()
+  amount = BigIntegerField()
+  timestamp = BigIntegerField()
   channel = IntegerField()
 
 db.connect()
